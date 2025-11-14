@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>গাইডেন্স ক্যাডেট কোচিং — স্টাইলিশ তথ্যপত্র</title>
+  <meta name="description" content="গাইডেন্স ক্যাডেট কোচিং: বৈশিষ্ট্য, ব্যাচ সূচি ও পুরস্কার—স্টাইলিশ ও কালারফুল এক পেজে।" />
+
+  <!-- Google Fonts for Bangla -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Baloo+Da+2:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-brd: rgba(255, 255, 255, 0.18);
+      --ring: rgba(244, 114, 182, 0.55);
+    }
+    html, body { font-family: 'Hind Siliguri', system-ui, -apple-system, Segoe UI, Roboto, 'Baloo Da 2', sans-serif; }
+
+    /* Animated gradient background */
+    .bg-animated {
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(168,85,247,0.18), transparent 50%),
+                  radial-gradient(900px 500px at 90% 20%, rgba(59,130,246,0.18), transparent 50%),
+                  radial-gradient(700px 400px at 20% 90%, rgba(236,72,153,0.18), transparent 50%),
+                  linear-gradient(120deg, #0b1020, #0a0f1a 40%, #070b14);
+      position: relative;
+      overflow-x: hidden;
+      isolation: isolate;
+    }
+    .bg-animated::before {
+      content: "";
+      position: absolute; inset: -20% -10% 0 -10%;
+      background: conic-gradient(from 0deg, #22d3ee, #f472b6, #a78bfa, #22d3ee);
+      filter: blur(70px); opacity: 0.18; pointer-events: none;
+      animation: hue 16s linear infinite;
+      z-index: -1;
+    }
+    @keyframes hue { to { filter: hue-rotate(360deg); } }
+
+    /* Gradient text helper */
+    .gradient-text {
+      background: linear-gradient(92deg, #22d3ee 0%, #a78bfa 35%, #f472b6 70%, #22d3ee 100%);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; animation: hue 10s linear infinite;
+    }
+
+    /* Glassmorphism card */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-brd);
+    }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(18px) scale(0.98); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0) scale(1); }
+
+    /* Fancy ring hover */
+    .ring-fancy { box-shadow: 0 0 0 0 var(--ring); transition: box-shadow .4s ease, transform .2s ease; }
+    .ring-fancy:hover { box-shadow: 0 0 0 8px var(--ring); transform: translateY(-2px); }
+
+    /* Shiny border animation */
+    .shiny-border { position: relative; }
+    .shiny-border::after {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
+      background: linear-gradient(135deg, rgba(34,211,238,.5), rgba(167,139,250,.5), rgba(244,114,182,.5));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+
+    /* Confetti layer */
+    #confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 60; }
+    .confetti-bit { position: absolute; font-size: 16px; will-change: transform, opacity; }
+  </style>
+</head>
+<body class="bg-animated text-slate-100 min-h-screen selection:bg-fuchsia-500 selection:text-white">
+  <!-- Decorative blobs -->
+  <div class="pointer-events-none fixed -top-32 -right-32 w-[36rem] h-[36rem] rounded-full opacity-25 blur-3xl" style="background: radial-gradient(circle at center, rgba(59,130,246,.35), transparent 60%)"></div>
+  <div class="pointer-events-none fixed -bottom-40 -left-20 w-[40rem] h-[40rem] rounded-full opacity-20 blur-3xl" style="background: radial-gradient(circle at center, rgba(236,72,153,.35), transparent 60%)"></div>
+
+  <!-- Confetti Layer -->
+  <div id="confetti"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-black/25 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-fuchsia-400 to-violet-500 animate-pulse"></div>
+        <div>
+          <h1 class="text-xl md:text-2xl font-extrabold gradient-text" style="font-family:'Baloo Da 2', cursive">গাইডেন্স ক্যাডেট কোচিং</h1>
+          <p class="text-xs md:text-sm text-slate-300">স্টাইলিশ ও কালারফুল তথ্যপত্র</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="copyBtn" class="glass ring-fancy px-3 py-2 rounded-lg text-sm md:text-base flex items-center gap-2">
+          <span>📋</span><span>সময়সূচি কপি</span>
+        </button>
+        <button id="printBtn" class="glass ring-fancy px-3 py-2 rounded-lg text-sm md:text-base">🖨️ প্রিন্ট</button>
+        <button id="themeToggle" class="glass ring-fancy px-3 py-2 rounded-lg text-lg" title="ডার্ক/লাইট">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-10 md:pt-16 pb-6">
+    <div class="grid md:grid-cols-[1.1fr_.9fr] gap-6 items-center">
+      <div class="reveal show md:reveal">
+        <h2 class="text-4xl md:text-6xl font-black leading-tight gradient-text" style="font-family:'Baloo Da 2', cursive">
+          ক্যাডেট ভর্তি প্রস্তুতির প্রিমিয়াম গাইডলাইন
+        </h2>
+        <p class="mt-4 text-slate-300 text-lg md:text-xl">নতুন শিক্ষাক্রমের সাথে সামঞ্জস্যপূর্ণ পাঠদান, বেসিক গঠন, সৃজনশীলতা ও স্পোকেন ইংলিশ—সবকিছুর সমন্বয়ে এক শক্তিশালী প্রস্তুতি।</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="glass shiny-border px-3 py-1.5 rounded-full text-sm">❄️ শীতাতপ নিয়ন্ত্রিত ক্লাস</span>
+          <span class="glass shiny-border px-3 py-1.5 rounded-full text-sm">🧠 সৃজনশীল ও বেসিক</span>
+          <span class="glass shiny-border px-3 py-1.5 rounded-full text-sm">🗣️ স্পোকেন ইংলিশ</span>
+          <span class="glass shiny-border px-3 py-1.5 rounded-full text-sm">🏆 পুরস্কার ব্যবস্থা</span>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#batches" class="px-5 py-3 rounded-xl text-slate-900 font-bold bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-violet-300 hover:from-cyan-200 hover:via-fuchsia-200 hover:to-violet-200 transition ring-fancy">ব্যাচ সূচি দেখুন</a>
+          <button id="joinBtn" class="glass px-5 py-3 rounded-xl font-semibold ring-fancy">🎉 আমি অংশ নেব</button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="glass shiny-border rounded-2xl p-5 md:p-6">
+          <div class="aspect-video rounded-xl overflow-hidden border border-white/10">
+            <div class="w-full h-full bg-gradient-to-tr from-cyan-500/40 via-fuchsia-500/40 to-violet-500/40 grid place-content-center">
+              <div class="text-center">
+                <div class="text-7xl">📚</div>
+                <div class="mt-2 text-sm tracking-widest uppercase text-slate-200">Cadet Ready</div>
+              </div>
+            </div>
+          </div>
+          <p class="text-slate-300 text-sm mt-4">অভিজ্ঞ শিক্ষকমণ্ডলীর তত্ত্বাবধানে ধারাবাহিক মডেল টেস্ট, মাসিক-সাপ্তাহিক মূল্যায়ন এবং বিশেষ ক্লাসের সমন্বয়ে আপনার সাফল্য নিশ্চিত।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="max-w-6xl mx-auto px-4 py-6">
+    <h3 class="text-2xl md:text-3xl font-extrabold gradient-text" style="font-family:'Baloo Da 2', cursive">বৈশিষ্ট্য সমূহ</h3>
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <!-- List Left -->
+      <ul class="space-y-3 reveal">
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">❄️</span>
+            <p class="leading-relaxed">সম্পূর্ণ শীতাতপ নিয়ন্ত্রিত ক্লাস রুম।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">📘</span>
+            <p>নতুন শিক্ষাক্রমের আলোকে শিক্ষার্থীদের পাঠদান।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">👩‍🏫</span>
+            <p>অভিজ্ঞ শিক্ষকমন্ডলী দ্বারা পরিচালিত বাংলা, ইংরেজি ও গণিতের বেসিক গড়ার মাধ্যমে শিক্ষর্থীদের ক্যাডেট কলেজ ভর্তি পরীক্ষা ও অন্যান্য সকল ভর্তি পরীক্ষার জন্য উপযোগী করে গড়ে তোলা।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">✍️</span>
+            <p>ইংরেজি ও বাংলায় ফ্রি হ্যান্ড রাইটিং-এ দক্ষ করতে বিশেষ ক্লাসের ব্যবস্থা।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">💡</span>
+            <p>সৃজনশীল-এ দক্ষ করতে বিশেষ ব্যবস্থা গ্রহণ।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">⚖️</span>
+            <p>বাংলা, ইংরেজি, গণিত ও বিজ্ঞান ছাড়াও অন্যান্য সকল বিষয়ের উপর সমান গুরুত্ব প্রদান।</p>
+          </div>
+        </li>
+      </ul>
+      <!-- List Right -->
+      <ul class="space-y-3 reveal">
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">🗣️</span>
+            <p>শিক্ষার্থীদের ইংলিশ স্পোকেন এ দক্ষ করার লক্ষ্যে বিশেষ ব্যবস্থা গ্রহণ।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">🎨</span>
+            <p>শিক্ষার্থীদের শারীরিক-মানসিক বিকাশে খেলাধুলা ও চিত্রাঙ্কন প্রতিযোগিতার ব্যবস্থা।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">📝</span>
+            <p>প্রতি মাসে একটি মাসিক পরিক্ষার পাশাপাশি সাপ্তাহিক পরীক্ষার মাধ্যমে শিক্ষার্থীদের মেধা মূল্যায়ন করে বিশেষ পুরস্কার প্রদান।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">🧪</span>
+            <p>সেপ্টেম্বর থেকে ডিসেম্বর পর্যন্ত ক্যাডেট কলেজ ভর্তি পরীক্ষার অনুরূপ ৩০০ নম্বরের বিশেষ মডেল টেস্ট গ্রহণ।</p>
+          </div>
+        </li>
+        <li class="glass rounded-xl p-4 shiny-border">
+          <div class="flex gap-3">
+            <span class="text-2xl">📚</span>
+            <p>বোর্ড বই সম্পূর্ণ শেষ করার পর শিক্ষার্থীদের ভর্তি পরীক্ষার উপযোগী করে গড়ে তুলতে গণিত, ইংরেজি, বাংলা সহ অন্যান্য সকল বিষয়ের উপর বিশেষ তথ্যাবলী সম্পন্ন ক্লাস ওয়ার্ক প্রদান।</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Batches -->
+  <section id="batches" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="flex items-center justify-between gap-4">
+      <h3 class="text-2xl md:text-3xl font-extrabold gradient-text" style="font-family:'Baloo Da 2', cursive">ব্যাচ সূচি</h3>
+      <div class="text-slate-300 text-sm">দুর্বল শিক্ষার্থীদের জন্য সকালে ৮টা ও বিকেলে ৩টায় স্পেশাল ক্লাস</div>
+    </div>
+
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <!-- Padma -->
+      <div class="glass rounded-2xl p-5 shiny-border reveal" data-copy="পদ্মা — সকাল ৮.০০–১০.০০">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold">প্রথম ব্যাচ: <span class="text-cyan-300">পদ্মা</span></div>
+          <span class="px-3 py-1 rounded-full text-sm bg-cyan-500/20 border border-cyan-300/40">সকাল</span>
+        </div>
+        <div class="mt-2 text-lg">৮.০০ থেকে ১০.০০ পর্যন্ত</div>
+      </div>
+      <!-- Meghna -->
+      <div class="glass rounded-2xl p-5 shiny-border reveal" data-copy="মেঘনা — সকাল ৯.৩০–১১.৩০">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold">দ্বিতীয় ব্যাচ: <span class="text-fuchsia-300">মেঘনা</span></div>
+          <span class="px-3 py-1 rounded-full text-sm bg-fuchsia-500/20 border border-fuchsia-300/40">সকাল</span>
+        </div>
+        <div class="mt-2 text-lg">৯.৩০ থেকে ১১.৩০ পর্যন্ত</div>
+      </div>
+      <!-- Jamuna -->
+      <div class="glass rounded-2xl p-5 shiny-border reveal" data-copy="যমুনা — দুপুর ১২.৩০–২.৩০">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold">তৃতীয় ব্যাচ: <span class="text-violet-300">যমুনা</span></div>
+          <span class="px-3 py-1 rounded-full text-sm bg-violet-500/20 border border-violet-300/40">দুপুর</span>
+        </div>
+        <div class="mt-2 text-lg">১২.৩০ থেকে ২.৩০ পর্যন্ত</div>
+      </div>
+      <!-- Karnaphuli -->
+      <div class="glass rounded-2xl p-5 shiny-border reveal" data-copy="কর্ণফুলি — বিকাল ৩.০০–৫.০০">
+        <div class="flex items-center justify-between">
+          <div class="text-xl font-bold">চতুর্থ ব্যাচ: <span class="text-emerald-300">কর্ণফুলি</span></div>
+          <span class="px-3 py-1 rounded-full text-sm bg-emerald-500/20 border border-emerald-300/40">বিকাল</span>
+        </div>
+        <div class="mt-2 text-lg">৩.০০ থেকে ৫.০০ পর্যন্ত</div>
+      </div>
+    </div>
+
+    <div class="mt-4 text-sm text-slate-300">দুর্বল শিক্ষার্থীদের জন্য সকাল ৮ টা ও বিকেল ৩ টার ব্যাচে স্পেশাল ক্লাসের ব্যবস্থা।</div>
+  </section>
+
+  <!-- Rewards -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <h3 class="text-2xl md:text-3xl font-extrabold gradient-text" style="font-family:'Baloo Da 2', cursive">পুরস্কার ব্যবস্থা</h3>
+    <div class="mt-6 grid md:grid-cols-2 gap-4">
+      <div class="glass rounded-2xl p-5 shiny-border reveal">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">🏅</div>
+          <p class="text-lg">প্রতি মাসে যে শিক্ষার্থী ১০০% বাড়ীর কাজ সম্পন্ন করবে তাদেরকে পুরস্কৃত করা।</p>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-5 shiny-border reveal">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">🥈</div>
+          <p class="text-lg">পর পর চার সপ্তাহে গড়ে ৯০% নম্বর পেলে তাকে পুরস্কৃত করা।</p>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-5 shiny-border reveal">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">📊</div>
+          <p class="text-lg">প্রতি মাসিক পরীক্ষায় ৯০% নম্বর পেলে তাকে পুরস্কার প্রদান করা হয়।</p>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-5 shiny-border reveal">
+        <div class="flex items-center gap-3">
+          <div class="text-3xl">🏆</div>
+          <p class="text-lg">মডেল টেস্ট পরীক্ষার মেধাক্রম অনুযায়ী প্রথম তিন জনকে বিশেষ পুরস্কার প্রদান সহ ৯০% নম্বর প্রাপ্ত শিক্ষার্থীদের পুরস্কার প্রদান।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="max-w-6xl mx-auto px-4 pb-14 pt-6 text-slate-400 text-sm">
+    <div class="glass rounded-2xl p-4 shiny-border flex flex-wrap items-center justify-between gap-3">
+      <div>© <span id="yr"></span> গাইডেন্স ক্যাডেট কোচিং — সব অধিকার সংরক্ষিত</div>
+      <div class="flex gap-2">
+        <a class="underline decoration-dotted hover:text-slate-200" href="#features">বৈশিষ্ট্য</a>
+        <span class="opacity-50">•</span>
+        <a class="underline decoration-dotted hover:text-slate-200" href="#batches">ব্যাচ</a>
+        <span class="opacity-50">•</span>
+        <button id="topBtn" class="underline decoration-dotted hover:text-slate-200">উপরে যান ↑</button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Theme toggle: cycles dark/light via class on html
+    const themeBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      root.classList.add('light');
+      document.body.classList.remove('text-slate-100');
+      document.body.classList.add('text-slate-900');
+    }
+    const setTheme = (mode) => {
+      if (mode === 'light') {
+        root.classList.add('light');
+        document.body.classList.remove('text-slate-100');
+        document.body.classList.add('text-slate-900');
+        themeBtn.textContent = '☀️';
+      } else {
+        root.classList.remove('light');
+        document.body.classList.remove('text-slate-900');
+        document.body.classList.add('text-slate-100');
+        themeBtn.textContent = '🌙';
+      }
+      localStorage.setItem('theme', mode);
+    };
+    themeBtn.addEventListener('click', () => {
+      const now = root.classList.contains('light') ? 'dark' : 'light';
+      setTheme(now);
+    });
+    // initialize icon
+    themeBtn.textContent = root.classList.contains('light') ? '☀️' : '🌙';
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Copy batch schedule
+    const copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', async () => {
+      const items = [...document.querySelectorAll('#batches [data-copy]')].map(el => '• ' + el.getAttribute('data-copy'));
+      const extra = 'দুর্বল শিক্ষার্থীদের জন্য সকাল ৮টা ও বিকেল ৩টায় স্পেশাল ক্লাস।';
+      const text = 'ব্যাচ সূচি:\n' + items.join('\n') + '\n' + extra;
+      try {
+        await navigator.clipboard.writeText(text);
+        toast('সময়সূচি কপি হয়েছে!');
+      } catch {
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+        toast('সময়সূচি কপি হয়েছে!');
+      }
+    });
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    // Scroll to top
+    document.getElementById('topBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Simple toast
+    const toast = (msg) => {
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-lg glass shiny-border text-sm z-[70]';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 1800);
+    };
+
+    // Confetti effect (emoji burst)
+    const confettiLayer = document.getElementById('confetti');
+    function launchConfetti(duration = 1200, amount = 60) {
+      const emojis = ['🎉','✨','🎊','💫','⭐'];
+      const start = performance.now();
+      for (let i = 0; i < amount; i++) {
+        const bit = document.createElement('div');
+        bit.className = 'confetti-bit';
+        bit.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        const x = Math.random() * window.innerWidth;
+        const s = 0.8 + Math.random() * 1.4;
+        bit.style.left = x + 'px';
+        bit.style.top = '-20px';
+        bit.style.transform = `scale(${s})`;
+        confettiLayer.appendChild(bit);
+
+        const fall = () => {
+          const t = (performance.now() - start) / duration;
+          const y = t * (window.innerHeight + 60);
+          const wobble = Math.sin((t * 10 + i) * 1.6) * 24;
+          bit.style.transform = `translate(${wobble}px, ${y}px) scale(${s}) rotate(${t*720}deg)`;
+          bit.style.opacity = String(1 - t);
+          if (t < 1) requestAnimationFrame(fall); else bit.remove();
+        };
+        requestAnimationFrame(fall);
+      }
+    }
+    document.getElementById('joinBtn').addEventListener('click', () => {
+      launchConfetti(1500, 80);
+      toast('শুভেচ্ছা! আপনার প্রস্তুতি শুরু হোক 🎉');
+    });
+  </script>
+</body>
+</html>
